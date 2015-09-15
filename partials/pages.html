@@ -1,0 +1,15 @@
+ <a ui-sref="/newPage" class="btn-primary btn-lg nodecoration add-btn">Add New Page <span class="fa fa-plus"></span></a>
+<div class="page-details">
+	<h3>All Pages</h3>
+	<table class="table pagetable">
+		<tr ng-repeat="page in pages">
+			<td>{{page.title}}</td>
+			<td>{{page.id }} </td>
+			<td>{{page.description}}</td>
+			<td>{{page.type}}</td>
+			<td>{{page.isAcive}}</td>
+			<td>{{page.publishedOn | date }} </td>
+			<td><a class="btn btn-primary table-btn" ui-sref="viewPage({id:page._id})">View <span class="fa fa-eye"></a> <a class="btn btn-danger table-btn"  ng-click="deletePage(page)">Delete <span class="fa fa-trash-o"></span> </a></td>
+		</tr>
+	</table>
+</div>

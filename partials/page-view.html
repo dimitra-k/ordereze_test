@@ -1,0 +1,30 @@
+<div class="page-details">
+	<h3>Details for {{page.title}}</h3>
+	<table class="table pagetable">
+		<tr>
+			<td>Title</td>
+			<td>{{page.title}}</td>
+		</tr>
+		<tr>
+			<td>Id</td>
+			<td>{{page.id}}</td>
+		</tr>
+		<tr>
+			<td>Description</td>
+			<td>{{page.description}}</td>
+		</tr>
+		<tr>
+			<td>Type</td>
+			<td>{{page.type}}</td>
+		</tr>
+		<tr>
+			<td>Active</td>
+			<td>{{page.isActive}}</td>
+		</tr>
+		<tr>
+			<td>Date</td>
+			<td>{{page.publishedOn | date}}</td>
+		</tr>
+	</table>
+	<div class="save-btn"> <a class="btn btn-primary" ui-sref="editPage({id:page._id})">Edit <span class="fa fa-edit"></span></a> </div>
+</div>
