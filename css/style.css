@@ -45,7 +45,7 @@
   content: "\f067";
 }
 
-.buttons-wrapper .fa {
+.fa {
 	margin-left:20px
 }
 
@@ -60,7 +60,7 @@ body {
 .main h2 {
 	text-align:center;
 	text-transform:capitalize;
-    padding-top: 50px;
+    padding-top: 80px;
     color: #008196;
     font-weight: bold
 }
@@ -75,7 +75,7 @@ body {
 
 .buttons-wrapper {
    margin: 0 auto;
-    margin-top: 25%;
+    margin-top: 100px;
     width: 80%;
     border: 1px solid #75d0e0;
     padding-top: 20px;
@@ -87,7 +87,7 @@ body {
 }
 
 /* General button style (reset) */
-.btn {
+.buttons-wrapper .btn {
 	border: none;
 	font-family: inherit;
 	font-size: inherit;
@@ -112,7 +112,7 @@ body {
 	width:50%
 }
 
-.btn:after {
+.buttons-wrapper  .btn:after {
 	content: '';
 	position: absolute;
 	z-index: -1;
@@ -158,6 +158,51 @@ body {
 .main-btn:active:after {
 	height: 400%;
 	opacity: 1
+}
+
+.form-horizontal .control-label {
+	color: #008196;
+    text-transform: capitalize
+}
+
+.detail-form {
+	width:50%;
+	margin:0 auto;
+	margin-top:20px
+}
+
+.save-btn {
+	text-align:right
+}
+
+.save-btn .btn-primary, .add-btn {
+	background:#008196;
+	border:none
+}
+
+.save-btn .btn-primary:hover, .add-btn:hover {
+	background:#008196;
+	text-decoration:none
+}
+
+.page-details {
+	width:70%;
+	margin:0 auto
+}
+
+
+.table>tbody>tr>td:first-child {
+	color:#008196;	
+}
+
+.table>tbody>tr>td {
+	border:1px solid #75d0e0;
+	width:50%
+}
+
+.table-btn {
+   width:100px;
+   margin-bottom:10px
 }
 
 @media (max-width:992px) {
