@@ -1,0 +1,241 @@
+/* Scss Document  created by Dimitra Kitsiou*/
+
+$main-color: #008196;
+$secondary-color: #75d0e0;
+$border: 1px solid #75d0e0;
+$width:50%;
+$centermargin: 0 auto;
+ @mixin transform ($translate, $rotate) {
+	-webkit-transform: translateX($translate) translateY($translate) rotate($rotate);
+	-moz-transform: translateX($translate) translateY($translate) rotate($rotate);
+	-ms-transform: translateX($translate) translateY($translate) rotate($rotate);
+	transform: translateX($translate) translateY($translate) rotate($rotate)
+ }
+ 
+ @mixin transition ($sec) {
+ 	-webkit-transition: all $sec;
+	-moz-transition: all $sec;
+	transition: all $sec;
+ }
+ 
+@mixin font-face($font-family, $file-path, $font-weight, $font-style) {
+  @font-face {
+    font-family: $font-family;
+      src: url('#{$file-path}.eot?v=4.3.0');
+      src: url('#{$file-path}.eot?#iefix?v=4.3.0') format('embedded-opentype'),
+           url('#{$file-path}.woff?v=4.3.0') format('woff'),
+           url('#{$file-path}.ttf?v=4.3.0') format('truetype'),
+           url('#{$file-path}.svg?v=4.3.0#{$font-family}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+@include font-face(museo_sans_100, '../fonts/museo_sans_100', normal, normal);
+@include font-face(fontAwesome, '../fonts/fontAwesome/fontawesome-webfont', normal, normal);
+
+body {
+	font-family:museo_sans_100;	
+	background-color: #fff;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+.fa {
+  display: inline-block;
+  margin-left:20px;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}
+
+.fa-edit:before {
+  content: "\f044";
+}
+
+.fa-eye:before {
+  content: "\f06e";
+}
+
+.fa-trash-o:before {
+  content: "\f014";
+}
+
+.fa-plus:before {
+  content: "\f067";
+}
+
+.right {
+	text-align:right
+}
+
+.left {
+	text-align:left
+}
+
+.main {
+	h2 {
+		text-align:center;
+		text-transform:capitalize;
+		padding-top: 80px;
+		color: $main-color;
+		font-weight: bold
+	}
+}
+
+.btn-col {
+	text-align:center
+}
+
+.buttons-wrapper {
+	margin: $centermargin;
+    margin-top: 100px;
+    width: 80%;
+    border: $border;
+    padding-top: 20px;
+    padding-bottom: 20px;
+		
+		.btn {
+		border: none;
+		font-family: inherit;
+		font-size: inherit;
+		color: inherit;
+		background: $main-color;
+		color:$secondary-color;
+		cursor: pointer;
+		padding: 25px 25px;
+		display: inline-block;
+		margin: 15px 30px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-weight: 700;
+		outline: none;
+		position: relative;
+		@include transition(0.3s);
+		border-radius:0;
+		z-index:0;
+		border:3px solid $secondary-color;
+		width:$width;
+			&:after {
+					content: '';
+					position: absolute;
+					z-index: -1;
+					@include transition(0.3s);
+			}
+		}
+}
+
+.main-btn {
+	overflow: hidden;
+		
+		&:after {
+			width: 2*$width;
+			height: 0;
+			top: $width;
+			left: $width;
+			background: #fff;
+			opacity: 0;
+			@include transform(-50%,45deg);
+		}
+		
+		&:hover {
+			color:$main-color;
+			border:3px solid $secondary-color ;			
+				&:after {
+					height: 230%;
+					opacity: 1;
+				}
+		}
+		
+		&:active {
+			@extend .main-btn:hover;
+				&:after {
+						height: 400%;
+						opacity: 1;
+				}
+		}
+		
+		&:focus {
+			color:$secondary-color
+		}
+}
+
+.form-horizontal {  
+  .control-label {
+	  color:$main-color;
+	  text-transform:capitalize
+  }
+}
+
+.detail-form {
+	width:$width;
+	margin:$centermargin;
+	margin-top:20px
+}
+
+.save-btn {
+	@extend .right;
+	 .btn-primary {
+		 background:$main-color;
+		 border:none; 
+		 &:hover {
+			 background:$main-color;
+			 text-decoration:none
+		 }
+	 }
+}
+
+.page-details {
+	width:70%;
+	margin:$centermargin;
+}
+
+.table {
+	tbody {
+		@for $i from 1 through 6 {
+				@if $i%2 !=0 {
+					tr {
+						&:nth-child(#{$i}) {
+							background-color:rgba(81,175,161,0.3)				
+						}
+							td {
+								border:$border;
+								width:$width;
+				
+								&:first-child {
+									color:$main-color;
+								}
+							}
+					}
+				}
+		}
+	}
+}
+
+.table-btn {
+   width:100px;
+   margin-bottom:10px
+}
+
+@media (min-width:992px) {
+}
+
+@media (max-width:991px) {
+	.right, .left {
+		text-align:center
+	}
+	
+	.buttons-wrapper  {
+		margin-top:7%
+	}
+}
+
+@media (max-width:475px) {
+	.btn {
+		width:70%
+	}
+}
